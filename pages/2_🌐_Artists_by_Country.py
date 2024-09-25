@@ -54,7 +54,21 @@ all_artists = ((conn.query("""
                          ORDER BY a.artist_name
                          """))
                .fillna(value='N/A')
-               .rename(columns={'artist_name': 'Artist', 'country_name': 'Country'})
                )
 
-st.dataframe(all_artists, use_container_width=True, hide_index=True)
+st.data_editor(
+        all_artists,
+        column_config={
+            "artist_name": st.column_config.TextColumn(
+                "Artist",
+                help="Name of Music Artist",
+                ),
+            "country_name": st.column_config.TextColumn(
+                "Country",
+                help="Country of Origin",
+                )
+            },
+        hide_index=True,
+        use_container_width=True,
+        disabled=True,
+        )
