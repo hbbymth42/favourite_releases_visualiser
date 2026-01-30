@@ -18,7 +18,7 @@ graph_type = st.sidebar.radio(
         ["All", "1960s", "1970s", "1980s", "1990s", "2000s", "2010s", "2020s"]
 )
 
-conn = st.experimental_connection('favouritemusic_db', type='sql')
+conn = st.connection('favouritemusic_db', type='sql')
 
 releases = ((conn.query("""
                         SELECT DISTINCT r.release_title

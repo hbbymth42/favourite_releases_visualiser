@@ -12,7 +12,7 @@ st.write(
         """
 )
 
-conn = st.experimental_connection('favouritemusic_db', type='sql')
+conn = st.connection('favouritemusic_db', type='sql')
 
 artists_by_country = conn.query("""
                                 SELECT c.country_code
